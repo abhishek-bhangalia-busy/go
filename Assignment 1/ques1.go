@@ -70,7 +70,7 @@ func main() {
 	}
 	//
 	var val interface{}
-	val = "New York city"
+	val = "New York"
 
 	SetKeyValue("city", m, val)
 	fmt.Println(m)
