@@ -6,31 +6,31 @@ import (
 )
 
 // PopulateStruct function populates fields of a struct using data from a map.
-func PopulateStruct(data map[string]interface{}, result interface{}) {
-	// Get the reflection value of the result interface and navigate to its underlying struct
-	resultValue := reflect.ValueOf(result).Elem()
+func PopulateStruct(data map[string]interface{}, persn interface{}) {
+	// Get the reflection value of the persn interface and navigate to its underlying struct
+	resultValue := reflect.ValueOf(persn).Elem()
 
 	// Iterate over each key-value pair in the data map
 	for key, value := range data {
 		// Get the field in the struct corresponding to the key
-		field := resultValue.FieldByName(key)
+		persnfield := resultValue.FieldByName(key)
 
-		// Check if the field is valid (exists in the struct)
-		if field.IsValid() {
+		// Check if the field is valid (exists in the struct) . Only do somethNing if person struct also has the same field
+		if persnfield.IsValid() {
 			// If the field is a struct itself, recursively populate its fields
-			if field.Kind() == reflect.Struct {
+			if persnfield.Kind() == reflect.Struct {
 				// Check if the value is a map, indicating nested struct data
 				if nestedMap, ok := value.(map[string]interface{}); ok {
 					// Create a new instance of the nested struct type
-					nestedStruct := reflect.New(field.Type()).Interface()
+					nestedStruct := reflect.New(persnfield.Type()).Interface()
 					// Recursively populate the nested struct fields
 					PopulateStruct(nestedMap, nestedStruct)
 					// Set the populated nested struct back to the field
-					field.Set(reflect.ValueOf(nestedStruct).Elem())
+					persnfield.Set(reflect.ValueOf(nestedStruct).Elem())
 				}
 			} else {
 				// For non-struct fields, set the value directly
-				field.Set(reflect.ValueOf(value))
+				persnfield.Set(reflect.ValueOf(value))
 			}
 		}
 	}
