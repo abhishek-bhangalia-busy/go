@@ -14,9 +14,9 @@ func Connect() *pg.DB {
 
 	opts := &pg.Options{
 		User:         "postgres",
-		Password:     "1234",
+		Password:     "5679",
 		Addr:         "localhost:5432",
-		Database:     "bank3",
+		Database:     "bank",
 		DialTimeout:  30 * time.Second,
 		ReadTimeout:  1 * time.Minute,
 		WriteTimeout: 1 * time.Minute,
