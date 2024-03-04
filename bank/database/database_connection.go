@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	pg "github.com/go-pg/pg"
+	pg "github.com/go-pg/pg/v10"
 )
 
 var Db *pg.DB
@@ -14,9 +14,9 @@ func Connect() *pg.DB {
 
 	opts := &pg.Options{
 		User:         "postgres",
-		Password:     "5679",
+		Password:     "1234",
 		Addr:         "localhost:5432",
-		Database:     "bank",
+		Database:     "bank3",
 		DialTimeout:  30 * time.Second,
 		ReadTimeout:  1 * time.Minute,
 		WriteTimeout: 1 * time.Minute,

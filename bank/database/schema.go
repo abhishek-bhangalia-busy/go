@@ -3,8 +3,8 @@ package database
 import (
 	"bank/models"
 
-	pg "github.com/go-pg/pg"
-	"github.com/go-pg/pg/orm"
+	pg "github.com/go-pg/pg/v10"
+	"github.com/go-pg/pg/v10/orm"
 )
 
 func CreateSchema(db *pg.DB) error {

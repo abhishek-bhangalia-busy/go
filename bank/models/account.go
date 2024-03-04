@@ -11,5 +11,5 @@ type Account struct {
 	OpeningDate time.Time
 	Branch *Branch `pg:"rel:has-one"`
 	Transactions []*Transaction `pg:"rel:has-many"`
-	Customers []*Customer `pg:"many2many:AccountToCustomer"`
+	Customers []*Customer `pg:"many2many:account_to_customers"`
 }

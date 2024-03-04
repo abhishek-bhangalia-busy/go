@@ -9,5 +9,5 @@ type Customer struct {
 	Age      int
 	PhoneNo  int
 	Address  string
-	Accounts []*Account `pg:"many2many:AccountToCustomer"`
+	Accounts []*Account `pg:"many2many:account_to_customers"`
 }

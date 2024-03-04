@@ -12,7 +12,7 @@ import (
 	"bank/models"
 
 	"github.com/gin-gonic/gin"
-	"github.com/go-pg/pg"
+	"github.com/go-pg/pg/v10"
 )
 
 func CreateTransaction(c *gin.Context) {
